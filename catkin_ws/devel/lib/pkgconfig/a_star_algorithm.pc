@@ -1,0 +1,8 @@
+prefix=/home/mfglr/AStarAlgorithm/catkin_ws/devel
+
+Name: a_star_algorithm
+Description: Description of a_star_algorithm
+Version: 0.0.0
+Cflags: -I/home/mfglr/AStarAlgorithm/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
