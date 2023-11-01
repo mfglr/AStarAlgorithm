@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <a_star_algorithm/NodeMessage.h>
 
 namespace a_star_algorithm
 {
@@ -26,12 +27,12 @@ struct PathMessage_
   PathMessage_()
     : id(0)
     , sizeOfNodes(0)
-    , path()  {
+    , nodes()  {
     }
   PathMessage_(const ContainerAllocator& _alloc)
     : id(0)
     , sizeOfNodes(0)
-    , path(_alloc)  {
+    , nodes(_alloc)  {
   (void)_alloc;
     }
 
@@ -43,8 +44,8 @@ struct PathMessage_
    typedef int32_t _sizeOfNodes_type;
   _sizeOfNodes_type sizeOfNodes;
 
-   typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _path_type;
-  _path_type path;
+   typedef std::vector< ::a_star_algorithm::NodeMessage_<ContainerAllocator> , typename std::allocator_traits<ContainerAllocator>::template rebind_alloc< ::a_star_algorithm::NodeMessage_<ContainerAllocator> >> _nodes_type;
+  _nodes_type nodes;
 
 
 
@@ -77,7 +78,7 @@ bool operator==(const ::a_star_algorithm::PathMessage_<ContainerAllocator1> & lh
 {
   return lhs.id == rhs.id &&
     lhs.sizeOfNodes == rhs.sizeOfNodes &&
-    lhs.path == rhs.path;
+    lhs.nodes == rhs.nodes;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +135,12 @@ struct MD5Sum< ::a_star_algorithm::PathMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "126cd8f525eab64ba326556281e7f16a";
+    return "3a3bf4539a5dd0a368b12000b34be22d";
   }
 
   static const char* value(const ::a_star_algorithm::PathMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x126cd8f525eab64bULL;
-  static const uint64_t static_value2 = 0xa326556281e7f16aULL;
+  static const uint64_t static_value1 = 0x3a3bf4539a5dd0a3ULL;
+  static const uint64_t static_value2 = 0x68b12000b34be22dULL;
 };
 
 template<class ContainerAllocator>
@@ -160,7 +161,15 @@ struct Definition< ::a_star_algorithm::PathMessage_<ContainerAllocator> >
   {
     return "int32 id\n"
 "int32 sizeOfNodes\n"
-"int32[] path\n"
+"NodeMessage[] nodes\n"
+"================================================================================\n"
+"MSG: a_star_algorithm/NodeMessage\n"
+"VectorMessage location\n"
+"int32 g\n"
+"================================================================================\n"
+"MSG: a_star_algorithm/VectorMessage\n"
+"int32 x\n"
+"int32 y\n"
 ;
   }
 
@@ -181,7 +190,7 @@ namespace serialization
     {
       stream.next(m.id);
       stream.next(m.sizeOfNodes);
-      stream.next(m.path);
+      stream.next(m.nodes);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -204,11 +213,13 @@ struct Printer< ::a_star_algorithm::PathMessage_<ContainerAllocator> >
     Printer<int32_t>::stream(s, indent + "  ", v.id);
     s << indent << "sizeOfNodes: ";
     Printer<int32_t>::stream(s, indent + "  ", v.sizeOfNodes);
-    s << indent << "path[]" << std::endl;
-    for (size_t i = 0; i < v.path.size(); ++i)
+    s << indent << "nodes[]" << std::endl;
+    for (size_t i = 0; i < v.nodes.size(); ++i)
     {
-      s << indent << "  path[" << i << "]: ";
-      Printer<int32_t>::stream(s, indent + "  ", v.path[i]);
+      s << indent << "  nodes[" << i << "]: ";
+      s << std::endl;
+      s << indent;
+      Printer< ::a_star_algorithm::NodeMessage_<ContainerAllocator> >::stream(s, indent + "    ", v.nodes[i]);
     }
   }
 };

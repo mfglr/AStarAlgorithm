@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let NodeMessage = require('./NodeMessage.js');
 
 //-----------------------------------------------------------
 
@@ -20,7 +21,7 @@ class PathMessage {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.id = null;
       this.sizeOfNodes = null;
-      this.path = null;
+      this.nodes = null;
     }
     else {
       if (initObj.hasOwnProperty('id')) {
@@ -35,11 +36,11 @@ class PathMessage {
       else {
         this.sizeOfNodes = 0;
       }
-      if (initObj.hasOwnProperty('path')) {
-        this.path = initObj.path
+      if (initObj.hasOwnProperty('nodes')) {
+        this.nodes = initObj.nodes
       }
       else {
-        this.path = [];
+        this.nodes = [];
       }
     }
   }
@@ -50,8 +51,12 @@ class PathMessage {
     bufferOffset = _serializer.int32(obj.id, buffer, bufferOffset);
     // Serialize message field [sizeOfNodes]
     bufferOffset = _serializer.int32(obj.sizeOfNodes, buffer, bufferOffset);
-    // Serialize message field [path]
-    bufferOffset = _arraySerializer.int32(obj.path, buffer, bufferOffset, null);
+    // Serialize message field [nodes]
+    // Serialize the length for message field [nodes]
+    bufferOffset = _serializer.uint32(obj.nodes.length, buffer, bufferOffset);
+    obj.nodes.forEach((val) => {
+      bufferOffset = NodeMessage.serialize(val, buffer, bufferOffset);
+    });
     return bufferOffset;
   }
 
@@ -63,14 +68,19 @@ class PathMessage {
     data.id = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [sizeOfNodes]
     data.sizeOfNodes = _deserializer.int32(buffer, bufferOffset);
-    // Deserialize message field [path]
-    data.path = _arrayDeserializer.int32(buffer, bufferOffset, null)
+    // Deserialize message field [nodes]
+    // Deserialize array length for message field [nodes]
+    len = _deserializer.uint32(buffer, bufferOffset);
+    data.nodes = new Array(len);
+    for (let i = 0; i < len; ++i) {
+      data.nodes[i] = NodeMessage.deserialize(buffer, bufferOffset)
+    }
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
-    length += 4 * object.path.length;
+    length += 12 * object.nodes.length;
     return length + 12;
   }
 
@@ -81,7 +91,7 @@ class PathMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '126cd8f525eab64ba326556281e7f16a';
+    return '3a3bf4539a5dd0a368b12000b34be22d';
   }
 
   static messageDefinition() {
@@ -89,7 +99,15 @@ class PathMessage {
     return `
     int32 id
     int32 sizeOfNodes
-    int32[] path
+    NodeMessage[] nodes
+    ================================================================================
+    MSG: a_star_algorithm/NodeMessage
+    VectorMessage location
+    int32 g
+    ================================================================================
+    MSG: a_star_algorithm/VectorMessage
+    int32 x
+    int32 y
     `;
   }
 
@@ -113,11 +131,14 @@ class PathMessage {
       resolved.sizeOfNodes = 0
     }
 
-    if (msg.path !== undefined) {
-      resolved.path = msg.path;
+    if (msg.nodes !== undefined) {
+      resolved.nodes = new Array(msg.nodes.length);
+      for (let i = 0; i < resolved.nodes.length; ++i) {
+        resolved.nodes[i] = NodeMessage.Resolve(msg.nodes[i]);
+      }
     }
     else {
-      resolved.path = []
+      resolved.nodes = []
     }
 
     return resolved;

@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mfglr/AStarAlgorithm/catkin_ws/build
 include a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/progress.make
 
 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py a_star_algorithm /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg 
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py a_star_algorithm /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg a_star_algorithm/VectorMessage
 
 _a_star_algorithm_generate_messages_check_deps_PlatformMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage
 _a_star_algorithm_generate_messages_check_deps_PlatformMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build.make

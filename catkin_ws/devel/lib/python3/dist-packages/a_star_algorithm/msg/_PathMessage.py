@@ -6,16 +6,25 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import a_star_algorithm.msg
 
 class PathMessage(genpy.Message):
-  _md5sum = "126cd8f525eab64ba326556281e7f16a"
+  _md5sum = "3a3bf4539a5dd0a368b12000b34be22d"
   _type = "a_star_algorithm/PathMessage"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 id
 int32 sizeOfNodes
-int32[] path"""
-  __slots__ = ['id','sizeOfNodes','path']
-  _slot_types = ['int32','int32','int32[]']
+NodeMessage[] nodes
+================================================================================
+MSG: a_star_algorithm/NodeMessage
+VectorMessage location
+int32 g
+================================================================================
+MSG: a_star_algorithm/VectorMessage
+int32 x
+int32 y"""
+  __slots__ = ['id','sizeOfNodes','nodes']
+  _slot_types = ['int32','int32','a_star_algorithm/NodeMessage[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +34,7 @@ int32[] path"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       id,sizeOfNodes,path
+       id,sizeOfNodes,nodes
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -38,12 +47,12 @@ int32[] path"""
         self.id = 0
       if self.sizeOfNodes is None:
         self.sizeOfNodes = 0
-      if self.path is None:
-        self.path = []
+      if self.nodes is None:
+        self.nodes = []
     else:
       self.id = 0
       self.sizeOfNodes = 0
-      self.path = []
+      self.nodes = []
 
   def _get_types(self):
     """
@@ -59,10 +68,14 @@ int32[] path"""
     try:
       _x = self
       buff.write(_get_struct_2i().pack(_x.id, _x.sizeOfNodes))
-      length = len(self.path)
+      length = len(self.nodes)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(struct.Struct(pattern).pack(*self.path))
+      for val1 in self.nodes:
+        _v1 = val1.location
+        _x = _v1
+        buff.write(_get_struct_2i().pack(_x.x, _x.y))
+        _x = val1.g
+        buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -74,6 +87,8 @@ int32[] path"""
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.nodes is None:
+        self.nodes = None
       end = 0
       _x = self
       start = end
@@ -82,11 +97,18 @@ int32[] path"""
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.path = s.unpack(str[start:end])
+      self.nodes = []
+      for i in range(0, length):
+        val1 = a_star_algorithm.msg.NodeMessage()
+        _v2 = val1.location
+        _x = _v2
+        start = end
+        end += 8
+        (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
+        start = end
+        end += 4
+        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        self.nodes.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -101,10 +123,14 @@ int32[] path"""
     try:
       _x = self
       buff.write(_get_struct_2i().pack(_x.id, _x.sizeOfNodes))
-      length = len(self.path)
+      length = len(self.nodes)
       buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(self.path.tostring())
+      for val1 in self.nodes:
+        _v3 = val1.location
+        _x = _v3
+        buff.write(_get_struct_2i().pack(_x.x, _x.y))
+        _x = val1.g
+        buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -117,6 +143,8 @@ int32[] path"""
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.nodes is None:
+        self.nodes = None
       end = 0
       _x = self
       start = end
@@ -125,11 +153,18 @@ int32[] path"""
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.path = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
+      self.nodes = []
+      for i in range(0, length):
+        val1 = a_star_algorithm.msg.NodeMessage()
+        _v4 = val1.location
+        _x = _v4
+        start = end
+        end += 8
+        (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
+        start = end
+        end += 4
+        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        self.nodes.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -144,3 +179,9 @@ def _get_struct_2i():
     if _struct_2i is None:
         _struct_2i = struct.Struct("<2i")
     return _struct_2i
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i

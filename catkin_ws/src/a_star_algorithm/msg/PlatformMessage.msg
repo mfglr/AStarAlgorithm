@@ -1,5 +1,5 @@
 int32 id
 int32 size
-int32[] start
-int32[] end
+VectorMessage start
+VectorMessage end
 int32[] data

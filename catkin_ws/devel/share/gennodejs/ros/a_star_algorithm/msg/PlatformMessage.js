@@ -11,6 +11,7 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let VectorMessage = require('./VectorMessage.js');
 
 //-----------------------------------------------------------
 
@@ -41,13 +42,13 @@ class PlatformMessage {
         this.start = initObj.start
       }
       else {
-        this.start = [];
+        this.start = new VectorMessage();
       }
       if (initObj.hasOwnProperty('end')) {
         this.end = initObj.end
       }
       else {
-        this.end = [];
+        this.end = new VectorMessage();
       }
       if (initObj.hasOwnProperty('data')) {
         this.data = initObj.data
@@ -65,9 +66,9 @@ class PlatformMessage {
     // Serialize message field [size]
     bufferOffset = _serializer.int32(obj.size, buffer, bufferOffset);
     // Serialize message field [start]
-    bufferOffset = _arraySerializer.int32(obj.start, buffer, bufferOffset, null);
+    bufferOffset = VectorMessage.serialize(obj.start, buffer, bufferOffset);
     // Serialize message field [end]
-    bufferOffset = _arraySerializer.int32(obj.end, buffer, bufferOffset, null);
+    bufferOffset = VectorMessage.serialize(obj.end, buffer, bufferOffset);
     // Serialize message field [data]
     bufferOffset = _arraySerializer.int32(obj.data, buffer, bufferOffset, null);
     return bufferOffset;
@@ -82,9 +83,9 @@ class PlatformMessage {
     // Deserialize message field [size]
     data.size = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [start]
-    data.start = _arrayDeserializer.int32(buffer, bufferOffset, null)
+    data.start = VectorMessage.deserialize(buffer, bufferOffset);
     // Deserialize message field [end]
-    data.end = _arrayDeserializer.int32(buffer, bufferOffset, null)
+    data.end = VectorMessage.deserialize(buffer, bufferOffset);
     // Deserialize message field [data]
     data.data = _arrayDeserializer.int32(buffer, bufferOffset, null)
     return data;
@@ -92,10 +93,8 @@ class PlatformMessage {
 
   static getMessageSize(object) {
     let length = 0;
-    length += 4 * object.start.length;
-    length += 4 * object.end.length;
     length += 4 * object.data.length;
-    return length + 20;
+    return length + 28;
   }
 
   static datatype() {
@@ -105,7 +104,7 @@ class PlatformMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'a16b117448f2a137e2d0ba8d172a1948';
+    return 'a9b6046552f5181f0b68fa4d8d8c533d';
   }
 
   static messageDefinition() {
@@ -113,10 +112,14 @@ class PlatformMessage {
     return `
     int32 id
     int32 size
-    int32[] start
-    int32[] end
+    VectorMessage start
+    VectorMessage end
     int32[] data
     
+    ================================================================================
+    MSG: a_star_algorithm/VectorMessage
+    int32 x
+    int32 y
     `;
   }
 
@@ -141,17 +144,17 @@ class PlatformMessage {
     }
 
     if (msg.start !== undefined) {
-      resolved.start = msg.start;
+      resolved.start = VectorMessage.Resolve(msg.start)
     }
     else {
-      resolved.start = []
+      resolved.start = new VectorMessage()
     }
 
     if (msg.end !== undefined) {
-      resolved.end = msg.end;
+      resolved.end = VectorMessage.Resolve(msg.end)
     }
     else {
-      resolved.end = []
+      resolved.end = new VectorMessage()
     }
 
     if (msg.data !== undefined) {

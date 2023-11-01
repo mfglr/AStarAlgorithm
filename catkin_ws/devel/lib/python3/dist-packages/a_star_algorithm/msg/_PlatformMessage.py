@@ -6,19 +6,24 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import a_star_algorithm.msg
 
 class PlatformMessage(genpy.Message):
-  _md5sum = "a16b117448f2a137e2d0ba8d172a1948"
+  _md5sum = "a9b6046552f5181f0b68fa4d8d8c533d"
   _type = "a_star_algorithm/PlatformMessage"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 id
 int32 size
-int32[] start
-int32[] end
+VectorMessage start
+VectorMessage end
 int32[] data
-"""
+
+================================================================================
+MSG: a_star_algorithm/VectorMessage
+int32 x
+int32 y"""
   __slots__ = ['id','size','start','end','data']
-  _slot_types = ['int32','int32','int32[]','int32[]','int32[]']
+  _slot_types = ['int32','int32','a_star_algorithm/VectorMessage','a_star_algorithm/VectorMessage','int32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -42,16 +47,16 @@ int32[] data
       if self.size is None:
         self.size = 0
       if self.start is None:
-        self.start = []
+        self.start = a_star_algorithm.msg.VectorMessage()
       if self.end is None:
-        self.end = []
+        self.end = a_star_algorithm.msg.VectorMessage()
       if self.data is None:
         self.data = []
     else:
       self.id = 0
       self.size = 0
-      self.start = []
-      self.end = []
+      self.start = a_star_algorithm.msg.VectorMessage()
+      self.end = a_star_algorithm.msg.VectorMessage()
       self.data = []
 
   def _get_types(self):
@@ -67,15 +72,7 @@ int32[] data
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.id, _x.size))
-      length = len(self.start)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(struct.Struct(pattern).pack(*self.start))
-      length = len(self.end)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(struct.Struct(pattern).pack(*self.end))
+      buff.write(_get_struct_6i().pack(_x.id, _x.size, _x.start.x, _x.start.y, _x.end.x, _x.end.y))
       length = len(self.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%si'%length
@@ -91,27 +88,15 @@ int32[] data
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.start is None:
+        self.start = a_star_algorithm.msg.VectorMessage()
+      if self.end is None:
+        self.end = a_star_algorithm.msg.VectorMessage()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.id, _x.size,) = _get_struct_2i().unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.start = s.unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.end = s.unpack(str[start:end])
+      end += 24
+      (_x.id, _x.size, _x.start.x, _x.start.y, _x.end.x, _x.end.y,) = _get_struct_6i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -133,15 +118,7 @@ int32[] data
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.id, _x.size))
-      length = len(self.start)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(self.start.tostring())
-      length = len(self.end)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%si'%length
-      buff.write(self.end.tostring())
+      buff.write(_get_struct_6i().pack(_x.id, _x.size, _x.start.x, _x.start.y, _x.end.x, _x.end.y))
       length = len(self.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%si'%length
@@ -158,27 +135,15 @@ int32[] data
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.start is None:
+        self.start = a_star_algorithm.msg.VectorMessage()
+      if self.end is None:
+        self.end = a_star_algorithm.msg.VectorMessage()
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.id, _x.size,) = _get_struct_2i().unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.start = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%si'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.end = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
+      end += 24
+      (_x.id, _x.size, _x.start.x, _x.start.y, _x.end.x, _x.end.y,) = _get_struct_6i().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -195,9 +160,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2i = None
-def _get_struct_2i():
-    global _struct_2i
-    if _struct_2i is None:
-        _struct_2i = struct.Struct("<2i")
-    return _struct_2i
+_struct_6i = None
+def _get_struct_6i():
+    global _struct_6i
+    if _struct_6i is None:
+        _struct_6i = struct.Struct("<6i")
+    return _struct_6i

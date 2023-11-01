@@ -15,6 +15,8 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <a_star_algorithm/VectorMessage.h>
+#include <a_star_algorithm/VectorMessage.h>
 
 namespace a_star_algorithm
 {
@@ -47,10 +49,10 @@ struct PlatformMessage_
    typedef int32_t _size_type;
   _size_type size;
 
-   typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _start_type;
+   typedef  ::a_star_algorithm::VectorMessage_<ContainerAllocator>  _start_type;
   _start_type start;
 
-   typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _end_type;
+   typedef  ::a_star_algorithm::VectorMessage_<ContainerAllocator>  _end_type;
   _end_type end;
 
    typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _data_type;
@@ -146,12 +148,12 @@ struct MD5Sum< ::a_star_algorithm::PlatformMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "a16b117448f2a137e2d0ba8d172a1948";
+    return "a9b6046552f5181f0b68fa4d8d8c533d";
   }
 
   static const char* value(const ::a_star_algorithm::PlatformMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xa16b117448f2a137ULL;
-  static const uint64_t static_value2 = 0xe2d0ba8d172a1948ULL;
+  static const uint64_t static_value1 = 0xa9b6046552f5181fULL;
+  static const uint64_t static_value2 = 0x0b68fa4d8d8c533dULL;
 };
 
 template<class ContainerAllocator>
@@ -172,9 +174,14 @@ struct Definition< ::a_star_algorithm::PlatformMessage_<ContainerAllocator> >
   {
     return "int32 id\n"
 "int32 size\n"
-"int32[] start\n"
-"int32[] end\n"
+"VectorMessage start\n"
+"VectorMessage end\n"
 "int32[] data\n"
+"\n"
+"================================================================================\n"
+"MSG: a_star_algorithm/VectorMessage\n"
+"int32 x\n"
+"int32 y\n"
 ;
   }
 
@@ -220,18 +227,12 @@ struct Printer< ::a_star_algorithm::PlatformMessage_<ContainerAllocator> >
     Printer<int32_t>::stream(s, indent + "  ", v.id);
     s << indent << "size: ";
     Printer<int32_t>::stream(s, indent + "  ", v.size);
-    s << indent << "start[]" << std::endl;
-    for (size_t i = 0; i < v.start.size(); ++i)
-    {
-      s << indent << "  start[" << i << "]: ";
-      Printer<int32_t>::stream(s, indent + "  ", v.start[i]);
-    }
-    s << indent << "end[]" << std::endl;
-    for (size_t i = 0; i < v.end.size(); ++i)
-    {
-      s << indent << "  end[" << i << "]: ";
-      Printer<int32_t>::stream(s, indent + "  ", v.end[i]);
-    }
+    s << indent << "start: ";
+    s << std::endl;
+    Printer< ::a_star_algorithm::VectorMessage_<ContainerAllocator> >::stream(s, indent + "  ", v.start);
+    s << indent << "end: ";
+    s << std::endl;
+    Printer< ::a_star_algorithm::VectorMessage_<ContainerAllocator> >::stream(s, indent + "  ", v.end);
     s << indent << "data[]" << std::endl;
     for (size_t i = 0; i < v.data.size(); ++i)
     {

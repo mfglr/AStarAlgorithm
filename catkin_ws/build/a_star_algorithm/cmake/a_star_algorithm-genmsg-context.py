@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
+messages_str = "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
 services_str = ""
 pkg_name = "a_star_algorithm"
 dependencies_str = "std_msgs"

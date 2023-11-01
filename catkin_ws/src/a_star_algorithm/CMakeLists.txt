@@ -50,8 +50,11 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
+  VectorMessage.msg
+  NodeMessage.msg
   PlatformMessage.msg
   PathMessage.msg
+  AlgorithmMessage.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -124,12 +127,6 @@ include_directories(
 add_executable( path_finder src/path_finder.cpp )
 target_link_libraries(path_finder ${catkin_LIBRARIES} )
 add_dependencies(path_finder a_star_algorithm_path_finder)
-
-add_executable( simulation src/simulation.cpp )
-target_link_libraries(simulation ${catkin_LIBRARIES} )
-add_dependencies(simulation a_star_algorithm_simulation)
-
-
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

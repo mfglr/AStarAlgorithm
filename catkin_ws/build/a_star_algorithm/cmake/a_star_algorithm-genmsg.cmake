@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "a_star_algorithm: 2 messages, 0 services")
+message(STATUS "a_star_algorithm: 5 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -17,14 +17,29 @@ add_custom_target(a_star_algorithm_generate_messages ALL)
 
 
 
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" ""
+)
+
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" "a_star_algorithm/VectorMessage"
+)
+
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" "a_star_algorithm/VectorMessage"
 )
 
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
 add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" "a_star_algorithm/NodeMessage:a_star_algorithm/VectorMessage"
+)
+
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
+add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "a_star_algorithm" "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" "a_star_algorithm/NodeMessage:a_star_algorithm/PathMessage:a_star_algorithm/VectorMessage:a_star_algorithm/PlatformMessage"
 )
 
 #
@@ -34,15 +49,33 @@ add_custom_target(_a_star_algorithm_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(a_star_algorithm
-  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/a_star_algorithm
 )
 _generate_msg_cpp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_cpp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_cpp(a_star_algorithm
   "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_cpp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/a_star_algorithm
 )
 
@@ -60,9 +93,15 @@ add_custom_target(a_star_algorithm_generate_messages_cpp
 add_dependencies(a_star_algorithm_generate_messages a_star_algorithm_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_cpp _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_cpp _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_cpp _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_cpp _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_cpp _a_star_algorithm_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,15 +114,33 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS a_star_algorithm_generate_messages_
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(a_star_algorithm
-  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/a_star_algorithm
 )
 _generate_msg_eus(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_eus(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_eus(a_star_algorithm
   "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_eus(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/a_star_algorithm
 )
 
@@ -101,9 +158,15 @@ add_custom_target(a_star_algorithm_generate_messages_eus
 add_dependencies(a_star_algorithm_generate_messages a_star_algorithm_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_eus _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_eus _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_eus _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_eus _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_eus _a_star_algorithm_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,15 +179,33 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS a_star_algorithm_generate_messages_
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(a_star_algorithm
-  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/a_star_algorithm
 )
 _generate_msg_lisp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_lisp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_lisp(a_star_algorithm
   "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_lisp(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/a_star_algorithm
 )
 
@@ -142,9 +223,15 @@ add_custom_target(a_star_algorithm_generate_messages_lisp
 add_dependencies(a_star_algorithm_generate_messages a_star_algorithm_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_lisp _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_lisp _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_lisp _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_lisp _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_lisp _a_star_algorithm_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -157,15 +244,33 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS a_star_algorithm_generate_messages_
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(a_star_algorithm
-  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/a_star_algorithm
 )
 _generate_msg_nodejs(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_nodejs(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_nodejs(a_star_algorithm
   "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_nodejs(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/a_star_algorithm
 )
 
@@ -183,9 +288,15 @@ add_custom_target(a_star_algorithm_generate_messages_nodejs
 add_dependencies(a_star_algorithm_generate_messages a_star_algorithm_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_nodejs _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_nodejs _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_nodejs _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_nodejs _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_nodejs _a_star_algorithm_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -198,15 +309,33 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS a_star_algorithm_generate_messages_
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(a_star_algorithm
-  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/a_star_algorithm
 )
 _generate_msg_py(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_py(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_py(a_star_algorithm
   "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
   "${MSG_I_FLAGS}"
-  ""
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/a_star_algorithm
+)
+_generate_msg_py(a_star_algorithm
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
+  "${MSG_I_FLAGS}"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg;/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/a_star_algorithm
 )
 
@@ -224,9 +353,15 @@ add_custom_target(a_star_algorithm_generate_messages_py
 add_dependencies(a_star_algorithm_generate_messages a_star_algorithm_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_py _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_py _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_py _a_star_algorithm_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg" NAME_WE)
+add_dependencies(a_star_algorithm_generate_messages_py _a_star_algorithm_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg" NAME_WE)
 add_dependencies(a_star_algorithm_generate_messages_py _a_star_algorithm_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

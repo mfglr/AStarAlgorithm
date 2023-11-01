@@ -39,8 +39,11 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/a_star_algorithm/msg" TYPE FILE FILES
+    "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/VectorMessage.msg"
+    "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/NodeMessage.msg"
     "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg"
     "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg"
+    "/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/AlgorithmMessage.msg"
     )
 endif()
 

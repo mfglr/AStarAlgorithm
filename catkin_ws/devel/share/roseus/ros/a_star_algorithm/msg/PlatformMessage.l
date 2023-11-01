@@ -21,8 +21,8 @@
    (&key
     ((:id __id) 0)
     ((:size __size) 0)
-    ((:start __start) (make-array 0 :initial-element 0 :element-type :integer))
-    ((:end __end) (make-array 0 :initial-element 0 :element-type :integer))
+    ((:start __start) (instance a_star_algorithm::VectorMessage :init))
+    ((:end __end) (instance a_star_algorithm::VectorMessage :init))
     ((:data __data) (make-array 0 :initial-element 0 :element-type :integer))
     )
    (send-super :init)
@@ -39,11 +39,19 @@
    (&optional __size)
    (if __size (setq _size __size)) _size)
   (:start
-   (&optional __start)
-   (if __start (setq _start __start)) _start)
+   (&rest __start)
+   (if (keywordp (car __start))
+       (send* _start __start)
+     (progn
+       (if __start (setq _start (car __start)))
+       _start)))
   (:end
-   (&optional __end)
-   (if __end (setq _end __end)) _end)
+   (&rest __end)
+   (if (keywordp (car __end))
+       (send* _end __end)
+     (progn
+       (if __end (setq _end (car __end)))
+       _end)))
   (:data
    (&optional __data)
    (if __data (setq _data __data)) _data)
@@ -54,10 +62,10 @@
     4
     ;; int32 _size
     4
-    ;; int32[] _start
-    (* 4    (length _start)) 4
-    ;; int32[] _end
-    (* 4    (length _end)) 4
+    ;; a_star_algorithm/VectorMessage _start
+    (send _start :serialization-length)
+    ;; a_star_algorithm/VectorMessage _end
+    (send _end :serialization-length)
     ;; int32[] _data
     (* 4    (length _data)) 4
     ))
@@ -69,16 +77,10 @@
        (write-long _id s)
      ;; int32 _size
        (write-long _size s)
-     ;; int32[] _start
-     (write-long (length _start) s)
-     (dotimes (i (length _start))
-       (write-long (elt _start i) s)
-       )
-     ;; int32[] _end
-     (write-long (length _end) s)
-     (dotimes (i (length _end))
-       (write-long (elt _end i) s)
-       )
+     ;; a_star_algorithm/VectorMessage _start
+       (send _start :serialize s)
+     ;; a_star_algorithm/VectorMessage _end
+       (send _end :serialize s)
      ;; int32[] _data
      (write-long (length _data) s)
      (dotimes (i (length _data))
@@ -92,20 +94,10 @@
      (setq _id (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;; int32 _size
      (setq _size (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; int32[] _start
-   (let (n)
-     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
-     (setq _start (instantiate integer-vector n))
-     (dotimes (i n)
-     (setf (elt _start i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
-     ))
-   ;; int32[] _end
-   (let (n)
-     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
-     (setq _end (instantiate integer-vector n))
-     (dotimes (i n)
-     (setf (elt _end i) (sys::peek buf ptr- :integer)) (incf ptr- 4)
-     ))
+   ;; a_star_algorithm/VectorMessage _start
+     (send _start :deserialize buf ptr-) (incf ptr- (send _start :serialization-length))
+   ;; a_star_algorithm/VectorMessage _end
+     (send _end :deserialize buf ptr-) (incf ptr- (send _end :serialization-length))
    ;; int32[] _data
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -117,19 +109,23 @@
    self)
   )
 
-(setf (get a_star_algorithm::PlatformMessage :md5sum-) "a16b117448f2a137e2d0ba8d172a1948")
+(setf (get a_star_algorithm::PlatformMessage :md5sum-) "a9b6046552f5181f0b68fa4d8d8c533d")
 (setf (get a_star_algorithm::PlatformMessage :datatype-) "a_star_algorithm/PlatformMessage")
 (setf (get a_star_algorithm::PlatformMessage :definition-)
       "int32 id
 int32 size
-int32[] start
-int32[] end
+VectorMessage start
+VectorMessage end
 int32[] data
 
+================================================================================
+MSG: a_star_algorithm/VectorMessage
+int32 x
+int32 y
 ")
 
 
 
-(provide :a_star_algorithm/PlatformMessage "a16b117448f2a137e2d0ba8d172a1948")
+(provide :a_star_algorithm/PlatformMessage "a9b6046552f5181f0b68fa4d8d8c533d")
 
 

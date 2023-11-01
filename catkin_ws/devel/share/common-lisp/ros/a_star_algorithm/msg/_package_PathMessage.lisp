@@ -3,6 +3,6 @@
           ID
           SIZEOFNODES-VAL
           SIZEOFNODES
-          PATH-VAL
-          PATH
+          NODES-VAL
+          NODES
 ))

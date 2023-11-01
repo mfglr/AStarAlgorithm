@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/manifest.l"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/AlgorithmMessage.l"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/NodeMessage.l"
   "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PathMessage.l"
   "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PlatformMessage.l"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/VectorMessage.l"
   "CMakeFiles/a_star_algorithm_generate_messages_eus"
 )
 
