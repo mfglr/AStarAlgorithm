@@ -24,14 +24,24 @@ struct pathMessage_
   typedef pathMessage_<ContainerAllocator> Type;
 
   pathMessage_()
-    : path()  {
+    : id(0)
+    , sizeOfPath(0)
+    , path()  {
     }
   pathMessage_(const ContainerAllocator& _alloc)
-    : path(_alloc)  {
+    : id(0)
+    , sizeOfPath(0)
+    , path(_alloc)  {
   (void)_alloc;
     }
 
 
+
+   typedef int32_t _id_type;
+  _id_type id;
+
+   typedef int8_t _sizeOfPath_type;
+  _sizeOfPath_type sizeOfPath;
 
    typedef std::vector<int8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int8_t>> _path_type;
   _path_type path;
@@ -65,7 +75,9 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::a_star_algorithm::pathMessage_<ContainerAllocator1> & lhs, const ::a_star_algorithm::pathMessage_<ContainerAllocator2> & rhs)
 {
-  return lhs.path == rhs.path;
+  return lhs.id == rhs.id &&
+    lhs.sizeOfPath == rhs.sizeOfPath &&
+    lhs.path == rhs.path;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -122,12 +134,12 @@ struct MD5Sum< ::a_star_algorithm::pathMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "1e25e195c90ff1d4c83f62d1d195014e";
+    return "d11fa3ccd9cda428b05f117412d7ba8b";
   }
 
   static const char* value(const ::a_star_algorithm::pathMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x1e25e195c90ff1d4ULL;
-  static const uint64_t static_value2 = 0xc83f62d1d195014eULL;
+  static const uint64_t static_value1 = 0xd11fa3ccd9cda428ULL;
+  static const uint64_t static_value2 = 0xb05f117412d7ba8bULL;
 };
 
 template<class ContainerAllocator>
@@ -146,7 +158,9 @@ struct Definition< ::a_star_algorithm::pathMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int8[] path\n"
+    return "int32 id\n"
+"int8 sizeOfPath\n"
+"int8[] path\n"
 ;
   }
 
@@ -165,6 +179,8 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
+      stream.next(m.id);
+      stream.next(m.sizeOfPath);
       stream.next(m.path);
     }
 
@@ -184,6 +200,10 @@ struct Printer< ::a_star_algorithm::pathMessage_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::a_star_algorithm::pathMessage_<ContainerAllocator>& v)
   {
+    s << indent << "id: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.id);
+    s << indent << "sizeOfPath: ";
+    Printer<int8_t>::stream(s, indent + "  ", v.sizeOfPath);
     s << indent << "path[]" << std::endl;
     for (size_t i = 0; i < v.path.size(); ++i)
     {

@@ -79,6 +79,7 @@ clean: a_star_algorithm/clean
 # Directory level rules for directory a_star_algorithm
 
 # Recursive "all" directory target.
+a_star_algorithm/all: a_star_algorithm/CMakeFiles/simulation.dir/all
 a_star_algorithm/all: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages.dir/all
 a_star_algorithm/all: a_star_algorithm/CMakeFiles/path_finder.dir/all
 
@@ -90,11 +91,11 @@ a_star_algorithm/preinstall:
 .PHONY : a_star_algorithm/preinstall
 
 # Recursive "clean" directory target.
+a_star_algorithm/clean: a_star_algorithm/CMakeFiles/simulation.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
@@ -106,8 +107,10 @@ a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messa
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_gennodejs.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+a_star_algorithm/clean: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+a_star_algorithm/clean: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-a_star_algorithm/clean: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/clean
+a_star_algorithm/clean: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_gencpp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/clean
@@ -115,7 +118,6 @@ a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_geneus.dir/
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_genlisp.dir/clean
-a_star_algorithm/clean: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 a_star_algorithm/clean: a_star_algorithm/CMakeFiles/path_finder.dir/clean
@@ -424,6 +426,33 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
+# Target rules for target a_star_algorithm/CMakeFiles/simulation.dir
+
+# All Build rule for target.
+a_star_algorithm/CMakeFiles/simulation.dir/all:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/depend
+	$(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=23,24 "Built target simulation"
+.PHONY : a_star_algorithm/CMakeFiles/simulation.dir/all
+
+# Build rule for subdir invocation for target.
+a_star_algorithm/CMakeFiles/simulation.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/simulation.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
+.PHONY : a_star_algorithm/CMakeFiles/simulation.dir/rule
+
+# Convenience name for target.
+simulation: a_star_algorithm/CMakeFiles/simulation.dir/rule
+
+.PHONY : simulation
+
+# clean rule for target.
+a_star_algorithm/CMakeFiles/simulation.dir/clean:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/clean
+.PHONY : a_star_algorithm/CMakeFiles/simulation.dir/clean
+
+#=============================================================================
 # Target rules for target a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -534,33 +563,6 @@ rosgraph_msgs_generate_messages_lisp: a_star_algorithm/CMakeFiles/rosgraph_msgs_
 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
 	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 .PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
-.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# clean rule for target.
-a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
 # Target rules for target a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
@@ -728,9 +730,9 @@ a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 # Target rules for target a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir
 
 # All Build rule for target.
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/all: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/depend
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=10,11,12 "Built target a_star_algorithm_generate_messages_py"
@@ -862,6 +864,60 @@ a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 .PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
+# Target rules for target a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
+
+# All Build rule for target.
+a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
+.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
+.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_eus: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# clean rule for target.
+a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir
+
+# All Build rule for target.
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/depend
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target _a_star_algorithm_generate_messages_check_deps_PlatformMessage"
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+
+# Build rule for subdir invocation for target.
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule
+
+# Convenience name for target.
+_a_star_algorithm_generate_messages_check_deps_PlatformMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule
+
+.PHONY : _a_star_algorithm_generate_messages_check_deps_PlatformMessage
+
+# clean rule for target.
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/clean:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/clean
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/clean
+
+#=============================================================================
 # Target rules for target a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -889,38 +945,38 @@ a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 .PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir
+# Target rules for target a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir
 
 # All Build rule for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/depend
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target _a_star_algorithm_generate_messages_check_deps_pathMessage"
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/depend
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target _a_star_algorithm_generate_messages_check_deps_PathMessage"
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 
 # Build rule for subdir invocation for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/rule: cmake_check_build_system
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule
 
 # Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_pathMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/rule
+_a_star_algorithm_generate_messages_check_deps_PathMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule
 
-.PHONY : _a_star_algorithm_generate_messages_check_deps_pathMessage
+.PHONY : _a_star_algorithm_generate_messages_check_deps_PathMessage
 
 # clean rule for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/clean:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/clean
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/clean
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/clean:
+	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/clean
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/clean
 
 #=============================================================================
 # Target rules for target a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir
 
 # All Build rule for target.
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/all: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/depend
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/build
@@ -976,8 +1032,8 @@ a_star_algorithm/CMakeFiles/a_star_algorithm_gencpp.dir/clean:
 
 # All Build rule for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/all: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_eus.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/depend
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=3,4,5 "Built target a_star_algorithm_generate_messages_eus"
@@ -1032,8 +1088,8 @@ a_star_algorithm/CMakeFiles/a_star_algorithm_geneus.dir/clean:
 
 # All Build rule for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/all: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/depend
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=6,7 "Built target a_star_algorithm_generate_messages_lisp"
@@ -1111,39 +1167,12 @@ a_star_algorithm/CMakeFiles/a_star_algorithm_genlisp.dir/clean:
 .PHONY : a_star_algorithm/CMakeFiles/a_star_algorithm_genlisp.dir/clean
 
 #=============================================================================
-# Target rules for target a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir
-
-# All Build rule for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/depend
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num= "Built target _a_star_algorithm_generate_messages_check_deps_platformMessage"
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
-
-# Build rule for subdir invocation for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles 0
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/rule
-
-# Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_platformMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/rule
-
-.PHONY : _a_star_algorithm_generate_messages_check_deps_platformMessage
-
-# clean rule for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/clean:
-	$(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/clean
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/clean
-
-#=============================================================================
 # Target rules for target a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir
 
 # All Build rule for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/all: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_pathMessage.dir/all
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_platformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/all
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/all: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/all
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/depend
 	$(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=8,9 "Built target a_star_algorithm_generate_messages_nodejs"

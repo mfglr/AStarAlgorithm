@@ -3,7 +3,9 @@
 #include "vector2d.h"
 #include <math.h>
 #include "platform.h"
-namespace AStarAlgorithm{
+#include <iostream>
+
+namespace algorithm{
     class Node{
         private :
             Vector2D *location;
@@ -14,11 +16,15 @@ namespace AStarAlgorithm{
             }
         public :
             Node(Vector2D *location, int g){ this->location = location; this->g = g; }
-            Vector2D *getLocation(){ return location;} 
+            Vector2D *getLocation(){ return location;}
+            int getG(){return g;}
             int f(Vector2D *destination){ return h(destination) + g; }
             Node *createNextNode(Vector2D *move){ return new Node(*move + *location,g + 1); }
             Node *clone(){ return new Node(location->clone(),g); }
             void visit(Platform *platform){  platform->visit(location); }
+            void write(){
+                std::cout << location->getX() << " " << location->getY() << " " << g << std::endl; 
+            }
     };
 }
 #endif

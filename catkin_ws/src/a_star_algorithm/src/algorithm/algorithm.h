@@ -4,7 +4,7 @@
 #include "path.h"
 #include "node.h"
 #include <list>
-namespace AStarAlgorithm{
+namespace algorithm{
     class Algorithm{
         private :
             Platform *platform;

@@ -53,28 +53,28 @@ CMAKE_BINARY_DIR = /home/mfglr/AStarAlgorithm/catkin_ws/build
 # Include the progress variables for this target.
 include a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/progress.make
 
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/platformMessage.l
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/pathMessage.l
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PlatformMessage.l
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PathMessage.l
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/manifest.l
 
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/platformMessage.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/platformMessage.l: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from a_star_algorithm/platformMessage.msg"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PlatformMessage.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PlatformMessage.l: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from a_star_algorithm/PlatformMessage.msg"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/pathMessage.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/pathMessage.l: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from a_star_algorithm/pathMessage.msg"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PathMessage.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PathMessage.l: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from a_star_algorithm/PathMessage.msg"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg
 
 /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for a_star_algorithm"
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm a_star_algorithm std_msgs
 
 a_star_algorithm_generate_messages_eus: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus
-a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/platformMessage.l
-a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/pathMessage.l
+a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PlatformMessage.l
+a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/msg/PathMessage.l
 a_star_algorithm_generate_messages_eus: /home/mfglr/AStarAlgorithm/catkin_ws/devel/share/roseus/ros/a_star_algorithm/manifest.l
 a_star_algorithm_generate_messages_eus: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_eus.dir/build.make
 

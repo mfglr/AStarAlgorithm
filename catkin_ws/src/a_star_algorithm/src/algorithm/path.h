@@ -1,9 +1,8 @@
 #ifndef CUSTOM_Path_h
 #define CUSTOM_Path_h
-
 #include <iostream>
 #include "node.h"
-namespace AStarAlgorithm{
+namespace algorithm{
     class Path{
         private :
             int id;
@@ -32,6 +31,9 @@ namespace AStarAlgorithm{
             bool operator==(Path const& other){ return this->id == other.id; }
             Node *createNextNode(Vector2D *move){ return getLastNode()->createNextNode(move); }
             bool CanItMove(Platform *platform){ return platform->canItMove(getLastNode()->getLocation()); }
+            Node getNode(int index){ return nodes[index]; }
+            int getSizeOfNodes() { return sizeOfNodes; }
+            int getId(){return id;}
             Path cloneAndAddNode(int id,Node *node){
                 Path path = Path(id,sizeOfNodes + 1);
                 for(int i = 0; i < sizeOfNodes;i++)

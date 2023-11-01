@@ -1,10 +1,10 @@
 
 "use strict";
 
-let pathMessage = require('./pathMessage.js');
-let platformMessage = require('./platformMessage.js');
+let PlatformMessage = require('./PlatformMessage.js');
+let PathMessage = require('./PathMessage.js');
 
 module.exports = {
-  pathMessage: pathMessage,
-  platformMessage: platformMessage,
+  PlatformMessage: PlatformMessage,
+  PathMessage: PathMessage,
 };

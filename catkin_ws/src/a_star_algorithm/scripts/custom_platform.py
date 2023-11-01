@@ -4,7 +4,7 @@ import random
 class Platform :
     def __init__(self,size,start,end) :
         self.size = size
-        self.data = np.arange(size * size,dtype=np.int8)
+        self.data = np.arange(size * size,dtype=np.int32)
         self.data.fill(0)
         self.start = start
         self.end = end

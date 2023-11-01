@@ -6,6 +6,38 @@
 
 #IncludeRegexTransform: 
 
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/algorithm.h
 platform.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/platform.h
@@ -23,6 +55,8 @@ math.h
 -
 platform.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/platform.h
+iostream
+-
 
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/path.h
 iostream
@@ -35,20 +69,50 @@ stdlib.h
 -
 vector2d.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/vector2d.h
+iostream
+-
 
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/vector2d.h
+iostream
+-
+
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/path_converter.h
+a_star_algorithm/PathMessage.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/a_star_algorithm/PathMessage.h
+../algorithm/path.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/path.h
+../algorithm/node.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/node.h
+
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/platform_converter.h
+a_star_algorithm/PlatformMessage.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/a_star_algorithm/PlatformMessage.h
+../algorithm/platform.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/platform.h
+../algorithm/vector2d.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/vector2d.h
 
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/path_finder.cpp
 ros/ros.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/ros/ros.h
-std_msgs/String.h
-/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/std_msgs/String.h
+list
+-
+a_star_algorithm/PathMessage.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/a_star_algorithm/PathMessage.h
+a_star_algorithm/PlatformMessage.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/a_star_algorithm/PlatformMessage.h
 algorithm/algorithm.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/algorithm.h
 algorithm/platform.h
 /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/platform.h
-sstream
--
+algorithm/vector2d.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/vector2d.h
+algorithm/path.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/algorithm/path.h
+converters/path_converter.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/path_converter.h
+converters/platform_converter.h
+/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/src/converters/platform_converter.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -699,22 +763,6 @@ ros/forwards.h
 /opt/ros/noetic/include/ros/ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
-
-/opt/ros/noetic/include/std_msgs/String.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
 
 /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 ros/macros.h

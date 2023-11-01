@@ -8,15 +8,17 @@ import struct
 
 
 class platformMessage(genpy.Message):
-  _md5sum = "6bc147b333d921576cde564f05a07c0b"
+  _md5sum = "a52ae1bdbb73caa3e00e36dbb90510bc"
   _type = "a_star_algorithm/platformMessage"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int8 size
+  _full_text = """int32 id
+int32 size
+int32[] start
+int32[] end
 int8[] data
-int8[] start
-int8[] end"""
-  __slots__ = ['size','data','start','end']
-  _slot_types = ['int8','int8[]','int8[]','int8[]']
+"""
+  __slots__ = ['id','size','start','end','data']
+  _slot_types = ['int32','int32','int32[]','int32[]','int8[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -26,7 +28,7 @@ int8[] end"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       size,data,start,end
+       id,size,start,end,data
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -35,19 +37,22 @@ int8[] end"""
     if args or kwds:
       super(platformMessage, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
+      if self.id is None:
+        self.id = 0
       if self.size is None:
         self.size = 0
-      if self.data is None:
-        self.data = []
       if self.start is None:
         self.start = []
       if self.end is None:
         self.end = []
+      if self.data is None:
+        self.data = []
     else:
+      self.id = 0
       self.size = 0
-      self.data = []
       self.start = []
       self.end = []
+      self.data = []
 
   def _get_types(self):
     """
@@ -61,20 +66,20 @@ int8[] end"""
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.size
-      buff.write(_get_struct_b().pack(_x))
+      _x = self
+      buff.write(_get_struct_2i().pack(_x.id, _x.size))
+      length = len(self.start)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%si'%length
+      buff.write(struct.Struct(pattern).pack(*self.start))
+      length = len(self.end)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%si'%length
+      buff.write(struct.Struct(pattern).pack(*self.end))
       length = len(self.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sb'%length
       buff.write(struct.Struct(pattern).pack(*self.data))
-      length = len(self.start)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sb'%length
-      buff.write(struct.Struct(pattern).pack(*self.start))
-      length = len(self.end)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sb'%length
-      buff.write(struct.Struct(pattern).pack(*self.end))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -87,9 +92,26 @@ int8[] end"""
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
       start = end
-      end += 1
-      (self.size,) = _get_struct_b().unpack(str[start:end])
+      end += 8
+      (_x.id, _x.size,) = _get_struct_2i().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%si'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.start = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%si'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.end = s.unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -98,22 +120,6 @@ int8[] end"""
       s = struct.Struct(pattern)
       end += s.size
       self.data = s.unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sb'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.start = s.unpack(str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sb'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.end = s.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -126,20 +132,20 @@ int8[] end"""
     :param numpy: numpy python module
     """
     try:
-      _x = self.size
-      buff.write(_get_struct_b().pack(_x))
+      _x = self
+      buff.write(_get_struct_2i().pack(_x.id, _x.size))
+      length = len(self.start)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%si'%length
+      buff.write(self.start.tostring())
+      length = len(self.end)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%si'%length
+      buff.write(self.end.tostring())
       length = len(self.data)
       buff.write(_struct_I.pack(length))
       pattern = '<%sb'%length
       buff.write(self.data.tostring())
-      length = len(self.start)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sb'%length
-      buff.write(self.start.tostring())
-      length = len(self.end)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sb'%length
-      buff.write(self.end.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -153,9 +159,26 @@ int8[] end"""
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
       start = end
-      end += 1
-      (self.size,) = _get_struct_b().unpack(str[start:end])
+      end += 8
+      (_x.id, _x.size,) = _get_struct_2i().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%si'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.start = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%si'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.end = numpy.frombuffer(str[start:end], dtype=numpy.int32, count=length)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -164,22 +187,6 @@ int8[] end"""
       s = struct.Struct(pattern)
       end += s.size
       self.data = numpy.frombuffer(str[start:end], dtype=numpy.int8, count=length)
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sb'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.start = numpy.frombuffer(str[start:end], dtype=numpy.int8, count=length)
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sb'%length
-      start = end
-      s = struct.Struct(pattern)
-      end += s.size
-      self.end = numpy.frombuffer(str[start:end], dtype=numpy.int8, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -188,9 +195,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_b = None
-def _get_struct_b():
-    global _struct_b
-    if _struct_b is None:
-        _struct_b = struct.Struct("<b")
-    return _struct_b
+_struct_2i = None
+def _get_struct_2i():
+    global _struct_2i
+    if _struct_2i is None:
+        _struct_2i = struct.Struct("<2i")
+    return _struct_2i

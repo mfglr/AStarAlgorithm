@@ -53,25 +53,25 @@ CMAKE_BINARY_DIR = /home/mfglr/AStarAlgorithm/catkin_ws/build
 # Include the progress variables for this target.
 include a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/progress.make
 
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h
 
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from a_star_algorithm/platformMessage.msg"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm && /home/mfglr/AStarAlgorithm/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from a_star_algorithm/PlatformMessage.msg"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm && /home/mfglr/AStarAlgorithm/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm -e /opt/ros/noetic/share/gencpp/cmake/..
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h: /opt/ros/noetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from a_star_algorithm/pathMessage.msg"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm && /home/mfglr/AStarAlgorithm/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm -e /opt/ros/noetic/share/gencpp/cmake/..
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from a_star_algorithm/PathMessage.msg"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm && /home/mfglr/AStarAlgorithm/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm -e /opt/ros/noetic/share/gencpp/cmake/..
 
 a_star_algorithm_generate_messages_cpp: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp
-a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h
-a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h
+a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h
+a_star_algorithm_generate_messages_cpp: /home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h
 a_star_algorithm_generate_messages_cpp: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/build.make
 
 .PHONY : a_star_algorithm_generate_messages_cpp

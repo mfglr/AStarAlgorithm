@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/common-lisp/ros/a_star_algorithm/msg/pathMessage.lisp"
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/common-lisp/ros/a_star_algorithm/msg/platformMessage.lisp"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/common-lisp/ros/a_star_algorithm/msg/PathMessage.lisp"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/share/common-lisp/ros/a_star_algorithm/msg/PlatformMessage.lisp"
   "CMakeFiles/a_star_algorithm_generate_messages_lisp"
 )
 

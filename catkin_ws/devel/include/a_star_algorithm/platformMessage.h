@@ -24,32 +24,37 @@ struct platformMessage_
   typedef platformMessage_<ContainerAllocator> Type;
 
   platformMessage_()
-    : size(0)
-    , data()
+    : id(0)
+    , size(0)
     , start()
-    , end()  {
+    , end()
+    , data()  {
     }
   platformMessage_(const ContainerAllocator& _alloc)
-    : size(0)
-    , data(_alloc)
+    : id(0)
+    , size(0)
     , start(_alloc)
-    , end(_alloc)  {
+    , end(_alloc)
+    , data(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef int8_t _size_type;
+   typedef int32_t _id_type;
+  _id_type id;
+
+   typedef int32_t _size_type;
   _size_type size;
+
+   typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _start_type;
+  _start_type start;
+
+   typedef std::vector<int32_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int32_t>> _end_type;
+  _end_type end;
 
    typedef std::vector<int8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int8_t>> _data_type;
   _data_type data;
-
-   typedef std::vector<int8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int8_t>> _start_type;
-  _start_type start;
-
-   typedef std::vector<int8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int8_t>> _end_type;
-  _end_type end;
 
 
 
@@ -80,10 +85,11 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::a_star_algorithm::platformMessage_<ContainerAllocator1> & lhs, const ::a_star_algorithm::platformMessage_<ContainerAllocator2> & rhs)
 {
-  return lhs.size == rhs.size &&
-    lhs.data == rhs.data &&
+  return lhs.id == rhs.id &&
+    lhs.size == rhs.size &&
     lhs.start == rhs.start &&
-    lhs.end == rhs.end;
+    lhs.end == rhs.end &&
+    lhs.data == rhs.data;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -140,12 +146,12 @@ struct MD5Sum< ::a_star_algorithm::platformMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "6bc147b333d921576cde564f05a07c0b";
+    return "a52ae1bdbb73caa3e00e36dbb90510bc";
   }
 
   static const char* value(const ::a_star_algorithm::platformMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x6bc147b333d92157ULL;
-  static const uint64_t static_value2 = 0x6cde564f05a07c0bULL;
+  static const uint64_t static_value1 = 0xa52ae1bdbb73caa3ULL;
+  static const uint64_t static_value2 = 0xe00e36dbb90510bcULL;
 };
 
 template<class ContainerAllocator>
@@ -164,10 +170,11 @@ struct Definition< ::a_star_algorithm::platformMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int8 size\n"
+    return "int32 id\n"
+"int32 size\n"
+"int32[] start\n"
+"int32[] end\n"
 "int8[] data\n"
-"int8[] start\n"
-"int8[] end\n"
 ;
   }
 
@@ -186,10 +193,11 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
+      stream.next(m.id);
       stream.next(m.size);
-      stream.next(m.data);
       stream.next(m.start);
       stream.next(m.end);
+      stream.next(m.data);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -208,25 +216,27 @@ struct Printer< ::a_star_algorithm::platformMessage_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::a_star_algorithm::platformMessage_<ContainerAllocator>& v)
   {
+    s << indent << "id: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.id);
     s << indent << "size: ";
-    Printer<int8_t>::stream(s, indent + "  ", v.size);
-    s << indent << "data[]" << std::endl;
-    for (size_t i = 0; i < v.data.size(); ++i)
-    {
-      s << indent << "  data[" << i << "]: ";
-      Printer<int8_t>::stream(s, indent + "  ", v.data[i]);
-    }
+    Printer<int32_t>::stream(s, indent + "  ", v.size);
     s << indent << "start[]" << std::endl;
     for (size_t i = 0; i < v.start.size(); ++i)
     {
       s << indent << "  start[" << i << "]: ";
-      Printer<int8_t>::stream(s, indent + "  ", v.start[i]);
+      Printer<int32_t>::stream(s, indent + "  ", v.start[i]);
     }
     s << indent << "end[]" << std::endl;
     for (size_t i = 0; i < v.end.size(); ++i)
     {
       s << indent << "  end[" << i << "]: ";
-      Printer<int8_t>::stream(s, indent + "  ", v.end[i]);
+      Printer<int32_t>::stream(s, indent + "  ", v.end[i]);
+    }
+    s << indent << "data[]" << std::endl;
+    for (size_t i = 0; i < v.data.size(); ++i)
+    {
+      s << indent << "  data[" << i << "]: ";
+      Printer<int8_t>::stream(s, indent + "  ", v.data[i]);
     }
   }
 };

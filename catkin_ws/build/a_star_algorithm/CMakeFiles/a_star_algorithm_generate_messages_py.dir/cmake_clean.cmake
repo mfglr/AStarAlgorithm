@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py"
   "/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py"
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py"
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py"
   "CMakeFiles/a_star_algorithm_generate_messages_py"
 )
 

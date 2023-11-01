@@ -53,30 +53,30 @@ CMAKE_BINARY_DIR = /home/mfglr/AStarAlgorithm/catkin_ws/build
 # Include the progress variables for this target.
 include a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/progress.make
 
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py
-a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py
+a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py
 
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG a_star_algorithm/platformMessage"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/platformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG a_star_algorithm/PlatformMessage"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PlatformMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg
 
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG a_star_algorithm/pathMessage"
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/pathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py: /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG a_star_algorithm/PathMessage"
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg/PathMessage.msg -Ia_star_algorithm:/home/mfglr/AStarAlgorithm/catkin_ws/src/a_star_algorithm/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p a_star_algorithm -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg
 
 /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py
-/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py
+/home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mfglr/AStarAlgorithm/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for a_star_algorithm"
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build/a_star_algorithm && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg --initpy
 
 a_star_algorithm_generate_messages_py: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py
-a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_platformMessage.py
-a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_pathMessage.py
+a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PlatformMessage.py
+a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/_PathMessage.py
 a_star_algorithm_generate_messages_py: /home/mfglr/AStarAlgorithm/catkin_ws/devel/lib/python3/dist-packages/a_star_algorithm/msg/__init__.py
 a_star_algorithm_generate_messages_py: a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/build.make
 

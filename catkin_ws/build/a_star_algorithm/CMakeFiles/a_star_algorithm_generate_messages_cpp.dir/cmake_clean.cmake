@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/pathMessage.h"
-  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/platformMessage.h"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PathMessage.h"
+  "/home/mfglr/AStarAlgorithm/catkin_ws/devel/include/a_star_algorithm/PlatformMessage.h"
   "CMakeFiles/a_star_algorithm_generate_messages_cpp"
 )
 

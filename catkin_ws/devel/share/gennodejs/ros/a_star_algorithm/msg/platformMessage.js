@@ -18,23 +18,24 @@ class platformMessage {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
+      this.id = null;
       this.size = null;
-      this.data = null;
       this.start = null;
       this.end = null;
+      this.data = null;
     }
     else {
+      if (initObj.hasOwnProperty('id')) {
+        this.id = initObj.id
+      }
+      else {
+        this.id = 0;
+      }
       if (initObj.hasOwnProperty('size')) {
         this.size = initObj.size
       }
       else {
         this.size = 0;
-      }
-      if (initObj.hasOwnProperty('data')) {
-        this.data = initObj.data
-      }
-      else {
-        this.data = [];
       }
       if (initObj.hasOwnProperty('start')) {
         this.start = initObj.start
@@ -48,19 +49,27 @@ class platformMessage {
       else {
         this.end = [];
       }
+      if (initObj.hasOwnProperty('data')) {
+        this.data = initObj.data
+      }
+      else {
+        this.data = [];
+      }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type platformMessage
+    // Serialize message field [id]
+    bufferOffset = _serializer.int32(obj.id, buffer, bufferOffset);
     // Serialize message field [size]
-    bufferOffset = _serializer.int8(obj.size, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.size, buffer, bufferOffset);
+    // Serialize message field [start]
+    bufferOffset = _arraySerializer.int32(obj.start, buffer, bufferOffset, null);
+    // Serialize message field [end]
+    bufferOffset = _arraySerializer.int32(obj.end, buffer, bufferOffset, null);
     // Serialize message field [data]
     bufferOffset = _arraySerializer.int8(obj.data, buffer, bufferOffset, null);
-    // Serialize message field [start]
-    bufferOffset = _arraySerializer.int8(obj.start, buffer, bufferOffset, null);
-    // Serialize message field [end]
-    bufferOffset = _arraySerializer.int8(obj.end, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -68,23 +77,25 @@ class platformMessage {
     //deserializes a message object of type platformMessage
     let len;
     let data = new platformMessage(null);
+    // Deserialize message field [id]
+    data.id = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [size]
-    data.size = _deserializer.int8(buffer, bufferOffset);
+    data.size = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [start]
+    data.start = _arrayDeserializer.int32(buffer, bufferOffset, null)
+    // Deserialize message field [end]
+    data.end = _arrayDeserializer.int32(buffer, bufferOffset, null)
     // Deserialize message field [data]
     data.data = _arrayDeserializer.int8(buffer, bufferOffset, null)
-    // Deserialize message field [start]
-    data.start = _arrayDeserializer.int8(buffer, bufferOffset, null)
-    // Deserialize message field [end]
-    data.end = _arrayDeserializer.int8(buffer, bufferOffset, null)
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
+    length += 4 * object.start.length;
+    length += 4 * object.end.length;
     length += object.data.length;
-    length += object.start.length;
-    length += object.end.length;
-    return length + 13;
+    return length + 20;
   }
 
   static datatype() {
@@ -94,16 +105,18 @@ class platformMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '6bc147b333d921576cde564f05a07c0b';
+    return 'a52ae1bdbb73caa3e00e36dbb90510bc';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int8 size
+    int32 id
+    int32 size
+    int32[] start
+    int32[] end
     int8[] data
-    int8[] start
-    int8[] end
+    
     `;
   }
 
@@ -113,18 +126,18 @@ class platformMessage {
       msg = {};
     }
     const resolved = new platformMessage(null);
+    if (msg.id !== undefined) {
+      resolved.id = msg.id;
+    }
+    else {
+      resolved.id = 0
+    }
+
     if (msg.size !== undefined) {
       resolved.size = msg.size;
     }
     else {
       resolved.size = 0
-    }
-
-    if (msg.data !== undefined) {
-      resolved.data = msg.data;
-    }
-    else {
-      resolved.data = []
     }
 
     if (msg.start !== undefined) {
@@ -139,6 +152,13 @@ class platformMessage {
     }
     else {
       resolved.end = []
+    }
+
+    if (msg.data !== undefined) {
+      resolved.data = msg.data;
+    }
+    else {
+      resolved.data = []
     }
 
     return resolved;

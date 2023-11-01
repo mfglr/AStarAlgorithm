@@ -8,12 +8,14 @@ import struct
 
 
 class pathMessage(genpy.Message):
-  _md5sum = "1e25e195c90ff1d4c83f62d1d195014e"
+  _md5sum = "d11fa3ccd9cda428b05f117412d7ba8b"
   _type = "a_star_algorithm/pathMessage"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int8[] path"""
-  __slots__ = ['path']
-  _slot_types = ['int8[]']
+  _full_text = """int32 id
+int8 sizeOfPath
+int8[] path"""
+  __slots__ = ['id','sizeOfPath','path']
+  _slot_types = ['int32','int8','int8[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -23,7 +25,7 @@ class pathMessage(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       path
+       id,sizeOfPath,path
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -32,9 +34,15 @@ class pathMessage(genpy.Message):
     if args or kwds:
       super(pathMessage, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
+      if self.id is None:
+        self.id = 0
+      if self.sizeOfPath is None:
+        self.sizeOfPath = 0
       if self.path is None:
         self.path = []
     else:
+      self.id = 0
+      self.sizeOfPath = 0
       self.path = []
 
   def _get_types(self):
@@ -49,6 +57,8 @@ class pathMessage(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
+      _x = self
+      buff.write(_get_struct_ib().pack(_x.id, _x.sizeOfPath))
       length = len(self.path)
       buff.write(_struct_I.pack(length))
       pattern = '<%sb'%length
@@ -65,6 +75,10 @@ class pathMessage(genpy.Message):
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
+      start = end
+      end += 5
+      (_x.id, _x.sizeOfPath,) = _get_struct_ib().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -85,6 +99,8 @@ class pathMessage(genpy.Message):
     :param numpy: numpy python module
     """
     try:
+      _x = self
+      buff.write(_get_struct_ib().pack(_x.id, _x.sizeOfPath))
       length = len(self.path)
       buff.write(_struct_I.pack(length))
       pattern = '<%sb'%length
@@ -102,6 +118,10 @@ class pathMessage(genpy.Message):
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
+      start = end
+      end += 5
+      (_x.id, _x.sizeOfPath,) = _get_struct_ib().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -118,3 +138,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
+_struct_ib = None
+def _get_struct_ib():
+    global _struct_ib
+    if _struct_ib is None:
+        _struct_ib = struct.Struct("<ib")
+    return _struct_ib
