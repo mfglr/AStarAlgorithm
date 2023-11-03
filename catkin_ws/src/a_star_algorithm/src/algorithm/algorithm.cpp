@@ -116,7 +116,7 @@ class Grid{
         friend class Algorithm;
 };
 
-
+ 
 class Algorithm{
     int *gScores;
     bool *statusOfOpenSets;
