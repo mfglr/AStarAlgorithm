@@ -238,7 +238,7 @@ class Algorithm{
             return reconstruct_path(&current);
         }
 };
-
+ 
 
 int main(int argc,char**argv)
 {
