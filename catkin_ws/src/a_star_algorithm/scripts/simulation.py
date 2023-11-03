@@ -43,11 +43,4 @@ import os
 #     drawPath(msg.activePath,"green")
 
 
-if __name__ == "__main__" :
-    rospy.init_node("simulation",anonymous = True)
-    path_sub = rospy.Subscriber("algorithm",AlgorithmMessage,getAlgorithmMessage)
-
-    plt.show()
-
-    rospy.spin()
     
