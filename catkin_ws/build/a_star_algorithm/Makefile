@@ -101,17 +101,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -123,6 +112,17 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -166,21 +166,6 @@ preinstall/fast:
 depend:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
-
-# Convenience name for target.
-a_star_algorithm_genpy: a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
-
-.PHONY : a_star_algorithm_genpy
-
-# fast build rule for target.
-a_star_algorithm_genpy/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/build
-.PHONY : a_star_algorithm_genpy/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -243,34 +228,19 @@ rosgraph_msgs_generate_messages_lisp/fast:
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-a_star_algorithm/CMakeFiles/path_finder.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/path_finder.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/path_finder.dir/rule
+a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-path_finder: a_star_algorithm/CMakeFiles/path_finder.dir/rule
+rosgraph_msgs_generate_messages_eus: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
-.PHONY : path_finder
+.PHONY : rosgraph_msgs_generate_messages_eus
 
 # fast build rule for target.
-path_finder/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/path_finder.dir/build.make a_star_algorithm/CMakeFiles/path_finder.dir/build
-.PHONY : path_finder/fast
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
+rosgraph_msgs_generate_messages_eus/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
@@ -318,19 +288,19 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/rule
+a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
 
 # Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_VectorMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/rule
+a_star_algorithm_genpy: a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/rule
 
-.PHONY : _a_star_algorithm_generate_messages_check_deps_VectorMessage
+.PHONY : a_star_algorithm_genpy
 
 # fast build rule for target.
-_a_star_algorithm_generate_messages_check_deps_VectorMessage/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_VectorMessage.dir/build
-.PHONY : _a_star_algorithm_generate_messages_check_deps_VectorMessage/fast
+a_star_algorithm_genpy/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_genpy.dir/build
+.PHONY : a_star_algorithm_genpy/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -348,19 +318,19 @@ roscpp_generate_messages_py/fast:
 .PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
-a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_lisp: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_lisp
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+std_msgs_generate_messages_lisp/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_py.dir/rule:
@@ -378,19 +348,19 @@ a_star_algorithm_generate_messages_py/fast:
 .PHONY : a_star_algorithm_generate_messages_py/fast
 
 # Convenience name for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/rule
+a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/rule
+rosgraph_msgs_generate_messages_nodejs: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : _a_star_algorithm_generate_messages_check_deps_AlgorithmMessage
+.PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_AlgorithmMessage.dir/build
-.PHONY : _a_star_algorithm_generate_messages_check_deps_AlgorithmMessage/fast
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_gennodejs.dir/rule:
@@ -423,6 +393,36 @@ roscpp_generate_messages_cpp/fast:
 .PHONY : roscpp_generate_messages_cpp/fast
 
 # Convenience name for target.
+a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/rule
+
+# Convenience name for target.
+_a_star_algorithm_generate_messages_check_deps_GridMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/rule
+
+.PHONY : _a_star_algorithm_generate_messages_check_deps_GridMessage
+
+# fast build rule for target.
+_a_star_algorithm_generate_messages_check_deps_GridMessage/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_GridMessage.dir/build
+.PHONY : _a_star_algorithm_generate_messages_check_deps_GridMessage/fast
+
+# Convenience name for target.
+a_star_algorithm/CMakeFiles/simulation.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/simulation.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/simulation.dir/rule
+
+# Convenience name for target.
+simulation: a_star_algorithm/CMakeFiles/simulation.dir/rule
+
+.PHONY : simulation
+
+# fast build rule for target.
+simulation/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/build
+.PHONY : simulation/fast
+
+# Convenience name for target.
 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 .PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
@@ -438,36 +438,6 @@ std_msgs_generate_messages_nodejs/fast:
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make a_star_algorithm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule
-
-# Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_PlatformMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/rule
-
-.PHONY : _a_star_algorithm_generate_messages_check_deps_PlatformMessage
-
-# fast build rule for target.
-_a_star_algorithm_generate_messages_check_deps_PlatformMessage/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PlatformMessage.dir/build
-.PHONY : _a_star_algorithm_generate_messages_check_deps_PlatformMessage/fast
-
-# Convenience name for target.
 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/rule
@@ -481,51 +451,6 @@ std_msgs_generate_messages_py: a_star_algorithm/CMakeFiles/std_msgs_generate_mes
 std_msgs_generate_messages_py/fast:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/build.make a_star_algorithm/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make a_star_algorithm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/rule
-
-# Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_NodeMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/rule
-
-.PHONY : _a_star_algorithm_generate_messages_check_deps_NodeMessage
-
-# fast build rule for target.
-_a_star_algorithm_generate_messages_check_deps_NodeMessage/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_NodeMessage.dir/build
-.PHONY : _a_star_algorithm_generate_messages_check_deps_NodeMessage/fast
-
-# Convenience name for target.
-a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule
-.PHONY : a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule
-
-# Convenience name for target.
-_a_star_algorithm_generate_messages_check_deps_PathMessage: a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/rule
-
-.PHONY : _a_star_algorithm_generate_messages_check_deps_PathMessage
-
-# fast build rule for target.
-_a_star_algorithm_generate_messages_check_deps_PathMessage/fast:
-	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build.make a_star_algorithm/CMakeFiles/_a_star_algorithm_generate_messages_check_deps_PathMessage.dir/build
-.PHONY : _a_star_algorithm_generate_messages_check_deps_PathMessage/fast
 
 # Convenience name for target.
 a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_cpp.dir/rule:
@@ -647,6 +572,36 @@ a_star_algorithm_generate_messages_nodejs/fast:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/build.make a_star_algorithm/CMakeFiles/a_star_algorithm_generate_messages_nodejs.dir/build
 .PHONY : a_star_algorithm_generate_messages_nodejs/fast
 
+# Convenience name for target.
+a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make a_star_algorithm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+a_star_algorithm/CMakeFiles/path_finder.dir/rule:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_star_algorithm/CMakeFiles/path_finder.dir/rule
+.PHONY : a_star_algorithm/CMakeFiles/path_finder.dir/rule
+
+# Convenience name for target.
+path_finder: a_star_algorithm/CMakeFiles/path_finder.dir/rule
+
+.PHONY : path_finder
+
+# fast build rule for target.
+path_finder/fast:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/path_finder.dir/build.make a_star_algorithm/CMakeFiles/path_finder.dir/build
+.PHONY : path_finder/fast
+
 src/path_finder.o: src/path_finder.cpp.o
 
 .PHONY : src/path_finder.o
@@ -674,6 +629,33 @@ src/path_finder.cpp.s:
 	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/path_finder.dir/build.make a_star_algorithm/CMakeFiles/path_finder.dir/src/path_finder.cpp.s
 .PHONY : src/path_finder.cpp.s
 
+src/simulation.o: src/simulation.cpp.o
+
+.PHONY : src/simulation.o
+
+# target to build an object file
+src/simulation.cpp.o:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/src/simulation.cpp.o
+.PHONY : src/simulation.cpp.o
+
+src/simulation.i: src/simulation.cpp.i
+
+.PHONY : src/simulation.i
+
+# target to preprocess a source file
+src/simulation.cpp.i:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/src/simulation.cpp.i
+.PHONY : src/simulation.cpp.i
+
+src/simulation.s: src/simulation.cpp.s
+
+.PHONY : src/simulation.s
+
+# target to generate assembly for a file
+src/simulation.cpp.s:
+	cd /home/mfglr/AStarAlgorithm/catkin_ws/build && $(MAKE) -f a_star_algorithm/CMakeFiles/simulation.dir/build.make a_star_algorithm/CMakeFiles/simulation.dir/src/simulation.cpp.s
+.PHONY : src/simulation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -684,32 +666,27 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
-	@echo "... a_star_algorithm_genpy"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... a_star_algorithm_generate_messages"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... path_finder"
-	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... test"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
-	@echo "... _a_star_algorithm_generate_messages_check_deps_VectorMessage"
+	@echo "... a_star_algorithm_genpy"
 	@echo "... roscpp_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... a_star_algorithm_generate_messages_py"
-	@echo "... _a_star_algorithm_generate_messages_check_deps_AlgorithmMessage"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... a_star_algorithm_gennodejs"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... _a_star_algorithm_generate_messages_check_deps_GridMessage"
+	@echo "... simulation"
 	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... install/local"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... _a_star_algorithm_generate_messages_check_deps_PlatformMessage"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... _a_star_algorithm_generate_messages_check_deps_NodeMessage"
-	@echo "... _a_star_algorithm_generate_messages_check_deps_PathMessage"
 	@echo "... a_star_algorithm_generate_messages_cpp"
 	@echo "... a_star_algorithm_gencpp"
 	@echo "... a_star_algorithm_generate_messages_eus"
@@ -719,9 +696,14 @@ help:
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... a_star_algorithm_genlisp"
 	@echo "... a_star_algorithm_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... path_finder"
 	@echo "... src/path_finder.o"
 	@echo "... src/path_finder.i"
 	@echo "... src/path_finder.s"
+	@echo "... src/simulation.o"
+	@echo "... src/simulation.i"
+	@echo "... src/simulation.s"
 .PHONY : help
 
 

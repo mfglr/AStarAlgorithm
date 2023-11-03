@@ -9,7 +9,7 @@ import struct
 import a_star_algorithm.msg
 
 class AlgorithmMessage(genpy.Message):
-  _md5sum = "ce4c2d0aafc2657f6ef6618d564bf819"
+  _md5sum = "63a360c1d5e98eca0dd6fb4c67c4258a"
   _type = "a_star_algorithm/AlgorithmMessage"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """PlatformMessage platform
@@ -35,7 +35,7 @@ NodeMessage[] nodes
 ================================================================================
 MSG: a_star_algorithm/NodeMessage
 VectorMessage location
-int32 g"""
+int32 value"""
   __slots__ = ['platform','activePath','paths']
   _slot_types = ['a_star_algorithm/PlatformMessage','a_star_algorithm/PathMessage','a_star_algorithm/PathMessage[]']
 
@@ -93,7 +93,7 @@ int32 g"""
         _v1 = val1.location
         _x = _v1
         buff.write(_get_struct_2i().pack(_x.x, _x.y))
-        _x = val1.g
+        _x = val1.value
         buff.write(_get_struct_i().pack(_x))
       length = len(self.paths)
       buff.write(_struct_I.pack(length))
@@ -106,7 +106,7 @@ int32 g"""
           _v2 = val2.location
           _x = _v2
           buff.write(_get_struct_2i().pack(_x.x, _x.y))
-          _x = val2.g
+          _x = val2.value
           buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -155,7 +155,7 @@ int32 g"""
         (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
         start = end
         end += 4
-        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        (val1.value,) = _get_struct_i().unpack(str[start:end])
         self.activePath.nodes.append(val1)
       start = end
       end += 4
@@ -180,7 +180,7 @@ int32 g"""
           (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
           start = end
           end += 4
-          (val2.g,) = _get_struct_i().unpack(str[start:end])
+          (val2.value,) = _get_struct_i().unpack(str[start:end])
           val1.nodes.append(val2)
         self.paths.append(val1)
       return self
@@ -209,7 +209,7 @@ int32 g"""
         _v5 = val1.location
         _x = _v5
         buff.write(_get_struct_2i().pack(_x.x, _x.y))
-        _x = val1.g
+        _x = val1.value
         buff.write(_get_struct_i().pack(_x))
       length = len(self.paths)
       buff.write(_struct_I.pack(length))
@@ -222,7 +222,7 @@ int32 g"""
           _v6 = val2.location
           _x = _v6
           buff.write(_get_struct_2i().pack(_x.x, _x.y))
-          _x = val2.g
+          _x = val2.value
           buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -272,7 +272,7 @@ int32 g"""
         (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
         start = end
         end += 4
-        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        (val1.value,) = _get_struct_i().unpack(str[start:end])
         self.activePath.nodes.append(val1)
       start = end
       end += 4
@@ -297,7 +297,7 @@ int32 g"""
           (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
           start = end
           end += 4
-          (val2.g,) = _get_struct_i().unpack(str[start:end])
+          (val2.value,) = _get_struct_i().unpack(str[start:end])
           val1.nodes.append(val2)
         self.paths.append(val1)
       return self

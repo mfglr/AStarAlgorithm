@@ -96,7 +96,7 @@ class AlgorithmMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'ce4c2d0aafc2657f6ef6618d564bf819';
+    return '63a360c1d5e98eca0dd6fb4c67c4258a';
   }
 
   static messageDefinition() {
@@ -125,7 +125,7 @@ class AlgorithmMessage {
     ================================================================================
     MSG: a_star_algorithm/NodeMessage
     VectorMessage location
-    int32 g
+    int32 value
     `;
   }
 

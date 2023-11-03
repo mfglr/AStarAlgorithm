@@ -9,7 +9,7 @@ import struct
 import a_star_algorithm.msg
 
 class PathMessage(genpy.Message):
-  _md5sum = "3a3bf4539a5dd0a368b12000b34be22d"
+  _md5sum = "811bbae5e142336076d4597212609193"
   _type = "a_star_algorithm/PathMessage"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 id
@@ -18,7 +18,7 @@ NodeMessage[] nodes
 ================================================================================
 MSG: a_star_algorithm/NodeMessage
 VectorMessage location
-int32 g
+int32 value
 ================================================================================
 MSG: a_star_algorithm/VectorMessage
 int32 x
@@ -74,7 +74,7 @@ int32 y"""
         _v1 = val1.location
         _x = _v1
         buff.write(_get_struct_2i().pack(_x.x, _x.y))
-        _x = val1.g
+        _x = val1.value
         buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -107,7 +107,7 @@ int32 y"""
         (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
         start = end
         end += 4
-        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        (val1.value,) = _get_struct_i().unpack(str[start:end])
         self.nodes.append(val1)
       return self
     except struct.error as e:
@@ -129,7 +129,7 @@ int32 y"""
         _v3 = val1.location
         _x = _v3
         buff.write(_get_struct_2i().pack(_x.x, _x.y))
-        _x = val1.g
+        _x = val1.value
         buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -163,7 +163,7 @@ int32 y"""
         (_x.x, _x.y,) = _get_struct_2i().unpack(str[start:end])
         start = end
         end += 4
-        (val1.g,) = _get_struct_i().unpack(str[start:end])
+        (val1.value,) = _get_struct_i().unpack(str[start:end])
         self.nodes.append(val1)
       return self
     except struct.error as e:

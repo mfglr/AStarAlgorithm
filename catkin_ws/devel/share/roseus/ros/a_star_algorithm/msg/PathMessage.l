@@ -83,7 +83,7 @@
    self)
   )
 
-(setf (get a_star_algorithm::PathMessage :md5sum-) "3a3bf4539a5dd0a368b12000b34be22d")
+(setf (get a_star_algorithm::PathMessage :md5sum-) "811bbae5e142336076d4597212609193")
 (setf (get a_star_algorithm::PathMessage :datatype-) "a_star_algorithm/PathMessage")
 (setf (get a_star_algorithm::PathMessage :definition-)
       "int32 id
@@ -92,7 +92,7 @@ NodeMessage[] nodes
 ================================================================================
 MSG: a_star_algorithm/NodeMessage
 VectorMessage location
-int32 g
+int32 value
 ================================================================================
 MSG: a_star_algorithm/VectorMessage
 int32 x
@@ -101,6 +101,6 @@ int32 y
 
 
 
-(provide :a_star_algorithm/PathMessage "3a3bf4539a5dd0a368b12000b34be22d")
+(provide :a_star_algorithm/PathMessage "811bbae5e142336076d4597212609193")
 
 

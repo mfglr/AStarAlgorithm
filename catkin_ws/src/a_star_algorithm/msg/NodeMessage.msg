@@ -1,2 +1,0 @@
-VectorMessage location
-int32 g

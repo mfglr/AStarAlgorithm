@@ -102,16 +102,16 @@
   "a_star_algorithm/PathMessage")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<PathMessage>)))
   "Returns md5sum for a message object of type '<PathMessage>"
-  "3a3bf4539a5dd0a368b12000b34be22d")
+  "811bbae5e142336076d4597212609193")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'PathMessage)))
   "Returns md5sum for a message object of type 'PathMessage"
-  "3a3bf4539a5dd0a368b12000b34be22d")
+  "811bbae5e142336076d4597212609193")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<PathMessage>)))
   "Returns full string definition for message of type '<PathMessage>"
-  (cl:format cl:nil "int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 g~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%~%"))
+  (cl:format cl:nil "int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 value~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'PathMessage)))
   "Returns full string definition for message of type 'PathMessage"
-  (cl:format cl:nil "int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 g~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%~%"))
+  (cl:format cl:nil "int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 value~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <PathMessage>))
   (cl:+ 0
      4

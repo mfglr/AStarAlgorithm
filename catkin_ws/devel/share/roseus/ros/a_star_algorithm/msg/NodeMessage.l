@@ -14,17 +14,17 @@
 
 (defclass a_star_algorithm::NodeMessage
   :super ros::object
-  :slots (_location _g ))
+  :slots (_location _value ))
 
 (defmethod a_star_algorithm::NodeMessage
   (:init
    (&key
     ((:location __location) (instance a_star_algorithm::VectorMessage :init))
-    ((:g __g) 0)
+    ((:value __value) 0)
     )
    (send-super :init)
    (setq _location __location)
-   (setq _g (round __g))
+   (setq _value (round __value))
    self)
   (:location
    (&rest __location)
@@ -33,15 +33,15 @@
      (progn
        (if __location (setq _location (car __location)))
        _location)))
-  (:g
-   (&optional __g)
-   (if __g (setq _g __g)) _g)
+  (:value
+   (&optional __value)
+   (if __value (setq _value __value)) _value)
   (:serialization-length
    ()
    (+
     ;; a_star_algorithm/VectorMessage _location
     (send _location :serialization-length)
-    ;; int32 _g
+    ;; int32 _value
     4
     ))
   (:serialize
@@ -50,25 +50,25 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; a_star_algorithm/VectorMessage _location
        (send _location :serialize s)
-     ;; int32 _g
-       (write-long _g s)
+     ;; int32 _value
+       (write-long _value s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
    ;; a_star_algorithm/VectorMessage _location
      (send _location :deserialize buf ptr-) (incf ptr- (send _location :serialization-length))
-   ;; int32 _g
-     (setq _g (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _value
+     (setq _value (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
 
-(setf (get a_star_algorithm::NodeMessage :md5sum-) "055d2c8f3fa27ed8eee4293f534be47c")
+(setf (get a_star_algorithm::NodeMessage :md5sum-) "bdea65e7844ffe19096249ab018e2217")
 (setf (get a_star_algorithm::NodeMessage :datatype-) "a_star_algorithm/NodeMessage")
 (setf (get a_star_algorithm::NodeMessage :definition-)
       "VectorMessage location
-int32 g
+int32 value
 ================================================================================
 MSG: a_star_algorithm/VectorMessage
 int32 x
@@ -77,6 +77,6 @@ int32 y
 
 
 
-(provide :a_star_algorithm/NodeMessage "055d2c8f3fa27ed8eee4293f534be47c")
+(provide :a_star_algorithm/NodeMessage "bdea65e7844ffe19096249ab018e2217")
 
 

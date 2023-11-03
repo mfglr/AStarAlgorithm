@@ -135,12 +135,12 @@ struct MD5Sum< ::a_star_algorithm::PathMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "3a3bf4539a5dd0a368b12000b34be22d";
+    return "811bbae5e142336076d4597212609193";
   }
 
   static const char* value(const ::a_star_algorithm::PathMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x3a3bf4539a5dd0a3ULL;
-  static const uint64_t static_value2 = 0x68b12000b34be22dULL;
+  static const uint64_t static_value1 = 0x811bbae5e1423360ULL;
+  static const uint64_t static_value2 = 0x76d4597212609193ULL;
 };
 
 template<class ContainerAllocator>
@@ -165,7 +165,7 @@ struct Definition< ::a_star_algorithm::PathMessage_<ContainerAllocator> >
 "================================================================================\n"
 "MSG: a_star_algorithm/NodeMessage\n"
 "VectorMessage location\n"
-"int32 g\n"
+"int32 value\n"
 "================================================================================\n"
 "MSG: a_star_algorithm/VectorMessage\n"
 "int32 x\n"

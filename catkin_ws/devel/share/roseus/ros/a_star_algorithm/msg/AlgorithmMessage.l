@@ -91,7 +91,7 @@
    self)
   )
 
-(setf (get a_star_algorithm::AlgorithmMessage :md5sum-) "ce4c2d0aafc2657f6ef6618d564bf819")
+(setf (get a_star_algorithm::AlgorithmMessage :md5sum-) "63a360c1d5e98eca0dd6fb4c67c4258a")
 (setf (get a_star_algorithm::AlgorithmMessage :datatype-) "a_star_algorithm/AlgorithmMessage")
 (setf (get a_star_algorithm::AlgorithmMessage :definition-)
       "PlatformMessage platform
@@ -117,11 +117,11 @@ NodeMessage[] nodes
 ================================================================================
 MSG: a_star_algorithm/NodeMessage
 VectorMessage location
-int32 g
+int32 value
 ")
 
 
 
-(provide :a_star_algorithm/AlgorithmMessage "ce4c2d0aafc2657f6ef6618d564bf819")
+(provide :a_star_algorithm/AlgorithmMessage "63a360c1d5e98eca0dd6fb4c67c4258a")
 
 

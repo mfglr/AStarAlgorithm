@@ -1,4 +1,5 @@
 from ._AlgorithmMessage import *
+from ._GridMessage import *
 from ._NodeMessage import *
 from ._PathMessage import *
 from ._PlatformMessage import *

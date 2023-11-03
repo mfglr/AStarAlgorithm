@@ -26,11 +26,11 @@ struct NodeMessage_
 
   NodeMessage_()
     : location()
-    , g(0)  {
+    , value(0)  {
     }
   NodeMessage_(const ContainerAllocator& _alloc)
     : location(_alloc)
-    , g(0)  {
+    , value(0)  {
   (void)_alloc;
     }
 
@@ -39,8 +39,8 @@ struct NodeMessage_
    typedef  ::a_star_algorithm::VectorMessage_<ContainerAllocator>  _location_type;
   _location_type location;
 
-   typedef int32_t _g_type;
-  _g_type g;
+   typedef int32_t _value_type;
+  _value_type value;
 
 
 
@@ -72,7 +72,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::a_star_algorithm::NodeMessage_<ContainerAllocator1> & lhs, const ::a_star_algorithm::NodeMessage_<ContainerAllocator2> & rhs)
 {
   return lhs.location == rhs.location &&
-    lhs.g == rhs.g;
+    lhs.value == rhs.value;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -129,12 +129,12 @@ struct MD5Sum< ::a_star_algorithm::NodeMessage_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "055d2c8f3fa27ed8eee4293f534be47c";
+    return "bdea65e7844ffe19096249ab018e2217";
   }
 
   static const char* value(const ::a_star_algorithm::NodeMessage_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x055d2c8f3fa27ed8ULL;
-  static const uint64_t static_value2 = 0xeee4293f534be47cULL;
+  static const uint64_t static_value1 = 0xbdea65e7844ffe19ULL;
+  static const uint64_t static_value2 = 0x096249ab018e2217ULL;
 };
 
 template<class ContainerAllocator>
@@ -154,7 +154,7 @@ struct Definition< ::a_star_algorithm::NodeMessage_<ContainerAllocator> >
   static const char* value()
   {
     return "VectorMessage location\n"
-"int32 g\n"
+"int32 value\n"
 "================================================================================\n"
 "MSG: a_star_algorithm/VectorMessage\n"
 "int32 x\n"
@@ -178,7 +178,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.location);
-      stream.next(m.g);
+      stream.next(m.value);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -200,8 +200,8 @@ struct Printer< ::a_star_algorithm::NodeMessage_<ContainerAllocator> >
     s << indent << "location: ";
     s << std::endl;
     Printer< ::a_star_algorithm::VectorMessage_<ContainerAllocator> >::stream(s, indent + "  ", v.location);
-    s << indent << "g: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.g);
+    s << indent << "value: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.value);
   }
 };
 

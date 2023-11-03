@@ -9,16 +9,16 @@ import struct
 import a_star_algorithm.msg
 
 class NodeMessage(genpy.Message):
-  _md5sum = "055d2c8f3fa27ed8eee4293f534be47c"
+  _md5sum = "bdea65e7844ffe19096249ab018e2217"
   _type = "a_star_algorithm/NodeMessage"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """VectorMessage location
-int32 g
+int32 value
 ================================================================================
 MSG: a_star_algorithm/VectorMessage
 int32 x
 int32 y"""
-  __slots__ = ['location','g']
+  __slots__ = ['location','value']
   _slot_types = ['a_star_algorithm/VectorMessage','int32']
 
   def __init__(self, *args, **kwds):
@@ -29,7 +29,7 @@ int32 y"""
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       location,g
+       location,value
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -40,11 +40,11 @@ int32 y"""
       # message fields cannot be None, assign default values for those that are
       if self.location is None:
         self.location = a_star_algorithm.msg.VectorMessage()
-      if self.g is None:
-        self.g = 0
+      if self.value is None:
+        self.value = 0
     else:
       self.location = a_star_algorithm.msg.VectorMessage()
-      self.g = 0
+      self.value = 0
 
   def _get_types(self):
     """
@@ -59,7 +59,7 @@ int32 y"""
     """
     try:
       _x = self
-      buff.write(_get_struct_3i().pack(_x.location.x, _x.location.y, _x.g))
+      buff.write(_get_struct_3i().pack(_x.location.x, _x.location.y, _x.value))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -77,7 +77,7 @@ int32 y"""
       _x = self
       start = end
       end += 12
-      (_x.location.x, _x.location.y, _x.g,) = _get_struct_3i().unpack(str[start:end])
+      (_x.location.x, _x.location.y, _x.value,) = _get_struct_3i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -91,7 +91,7 @@ int32 y"""
     """
     try:
       _x = self
-      buff.write(_get_struct_3i().pack(_x.location.x, _x.location.y, _x.g))
+      buff.write(_get_struct_3i().pack(_x.location.x, _x.location.y, _x.value))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -110,7 +110,7 @@ int32 y"""
       _x = self
       start = end
       end += 12
-      (_x.location.x, _x.location.y, _x.g,) = _get_struct_3i().unpack(str[start:end])
+      (_x.location.x, _x.location.y, _x.value,) = _get_struct_3i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill

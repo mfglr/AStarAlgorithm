@@ -1,14 +1,10 @@
 (cl:defpackage a_star_algorithm-msg
   (:use )
   (:export
-   "<ALGORITHMMESSAGE>"
-   "ALGORITHMMESSAGE"
+   "<GRIDMESSAGE>"
+   "GRIDMESSAGE"
    "<NODEMESSAGE>"
    "NODEMESSAGE"
-   "<PATHMESSAGE>"
-   "PATHMESSAGE"
-   "<PLATFORMMESSAGE>"
-   "PLATFORMMESSAGE"
    "<VECTORMESSAGE>"
    "VECTORMESSAGE"
   ))

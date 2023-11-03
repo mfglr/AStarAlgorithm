@@ -91,7 +91,7 @@ class PathMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '3a3bf4539a5dd0a368b12000b34be22d';
+    return '811bbae5e142336076d4597212609193';
   }
 
   static messageDefinition() {
@@ -103,7 +103,7 @@ class PathMessage {
     ================================================================================
     MSG: a_star_algorithm/NodeMessage
     VectorMessage location
-    int32 g
+    int32 value
     ================================================================================
     MSG: a_star_algorithm/VectorMessage
     int32 x

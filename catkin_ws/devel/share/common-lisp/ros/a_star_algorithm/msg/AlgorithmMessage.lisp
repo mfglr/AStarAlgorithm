@@ -82,16 +82,16 @@
   "a_star_algorithm/AlgorithmMessage")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<AlgorithmMessage>)))
   "Returns md5sum for a message object of type '<AlgorithmMessage>"
-  "ce4c2d0aafc2657f6ef6618d564bf819")
+  "63a360c1d5e98eca0dd6fb4c67c4258a")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'AlgorithmMessage)))
   "Returns md5sum for a message object of type 'AlgorithmMessage"
-  "ce4c2d0aafc2657f6ef6618d564bf819")
+  "63a360c1d5e98eca0dd6fb4c67c4258a")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<AlgorithmMessage>)))
   "Returns full string definition for message of type '<AlgorithmMessage>"
-  (cl:format cl:nil "PlatformMessage platform~%PathMessage activePath~%PathMessage[] paths~%================================================================================~%MSG: a_star_algorithm/PlatformMessage~%int32 id~%int32 size~%VectorMessage start~%VectorMessage end~%int32[] data~%~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%================================================================================~%MSG: a_star_algorithm/PathMessage~%int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 g~%~%"))
+  (cl:format cl:nil "PlatformMessage platform~%PathMessage activePath~%PathMessage[] paths~%================================================================================~%MSG: a_star_algorithm/PlatformMessage~%int32 id~%int32 size~%VectorMessage start~%VectorMessage end~%int32[] data~%~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%================================================================================~%MSG: a_star_algorithm/PathMessage~%int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 value~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'AlgorithmMessage)))
   "Returns full string definition for message of type 'AlgorithmMessage"
-  (cl:format cl:nil "PlatformMessage platform~%PathMessage activePath~%PathMessage[] paths~%================================================================================~%MSG: a_star_algorithm/PlatformMessage~%int32 id~%int32 size~%VectorMessage start~%VectorMessage end~%int32[] data~%~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%================================================================================~%MSG: a_star_algorithm/PathMessage~%int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 g~%~%"))
+  (cl:format cl:nil "PlatformMessage platform~%PathMessage activePath~%PathMessage[] paths~%================================================================================~%MSG: a_star_algorithm/PlatformMessage~%int32 id~%int32 size~%VectorMessage start~%VectorMessage end~%int32[] data~%~%================================================================================~%MSG: a_star_algorithm/VectorMessage~%int32 x~%int32 y~%================================================================================~%MSG: a_star_algorithm/PathMessage~%int32 id~%int32 sizeOfNodes~%NodeMessage[] nodes~%================================================================================~%MSG: a_star_algorithm/NodeMessage~%VectorMessage location~%int32 value~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <AlgorithmMessage>))
   (cl:+ 0
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'platform))

@@ -20,7 +20,7 @@ class NodeMessage {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.location = null;
-      this.g = null;
+      this.value = null;
     }
     else {
       if (initObj.hasOwnProperty('location')) {
@@ -29,11 +29,11 @@ class NodeMessage {
       else {
         this.location = new VectorMessage();
       }
-      if (initObj.hasOwnProperty('g')) {
-        this.g = initObj.g
+      if (initObj.hasOwnProperty('value')) {
+        this.value = initObj.value
       }
       else {
-        this.g = 0;
+        this.value = 0;
       }
     }
   }
@@ -42,8 +42,8 @@ class NodeMessage {
     // Serializes a message object of type NodeMessage
     // Serialize message field [location]
     bufferOffset = VectorMessage.serialize(obj.location, buffer, bufferOffset);
-    // Serialize message field [g]
-    bufferOffset = _serializer.int32(obj.g, buffer, bufferOffset);
+    // Serialize message field [value]
+    bufferOffset = _serializer.int32(obj.value, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -53,8 +53,8 @@ class NodeMessage {
     let data = new NodeMessage(null);
     // Deserialize message field [location]
     data.location = VectorMessage.deserialize(buffer, bufferOffset);
-    // Deserialize message field [g]
-    data.g = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [value]
+    data.value = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
@@ -69,14 +69,14 @@ class NodeMessage {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '055d2c8f3fa27ed8eee4293f534be47c';
+    return 'bdea65e7844ffe19096249ab018e2217';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     VectorMessage location
-    int32 g
+    int32 value
     ================================================================================
     MSG: a_star_algorithm/VectorMessage
     int32 x
@@ -97,11 +97,11 @@ class NodeMessage {
       resolved.location = new VectorMessage()
     }
 
-    if (msg.g !== undefined) {
-      resolved.g = msg.g;
+    if (msg.value !== undefined) {
+      resolved.value = msg.value;
     }
     else {
-      resolved.g = 0
+      resolved.value = 0
     }
 
     return resolved;
